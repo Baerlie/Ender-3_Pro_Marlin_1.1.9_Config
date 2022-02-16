@@ -7,6 +7,8 @@ I use the original BLTouch mount that came with the kit, so the settings for X a
 
 Since the original Ender-3 Pro mainboard has limited memory, I had to **disable the SD Card support** to get the features activated that are necessary for BLTouch and the M600 GCode command (needed for the Filament Runout Sensor and Filament Change/Nozzle Parking features).
 
+**Important! Please check line 738 in Configuration.h and make the changes mentioned there!**
+
 **I am not responsible for any damage that happens to your printer when using my configuration file(s)!**
 
 ## FAQ:
