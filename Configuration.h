@@ -98,10 +98,10 @@
  */
 
 // Enable to show the bitmap in Marlin/_Bootscreen.h on startup.
-#define SHOW_CUSTOM_BOOTSCREEN
+#define SHOW_CUSTOM_BOOTSCREEN    // custom setup BP (comment to disable)
 
 // Enable to show the bitmap in Marlin/_Statusscreen.h on the status screen.
-#define CUSTOM_STATUS_SCREEN_IMAGE
+#define CUSTOM_STATUS_SCREEN_IMAGE    // custom setup BP (comment to disable)
 
 // @section machine
 
@@ -123,7 +123,7 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
-#define BAUDRATE 115200   // custom setup BP
+#define BAUDRATE 115200   // custom setup BP (according to original FW)
 
 // Enable the Bluetooth serial interface on AT90USB devices
 //#define BLUETOOTH
@@ -131,7 +131,7 @@
 // The following define selects which electronics board you have.
 // Please choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_MELZI_CREALITY
+  #define MOTHERBOARD BOARD_MELZI_CREALITY    // custom setup BP (according to original FW)
 #endif
 
 // Optional custom name for your RepStrap or other custom machine
@@ -149,7 +149,7 @@
 #define EXTRUDERS 1
 
 // Generally expected filament diameter (1.75, 2.85, 3.0, ...). Used for Volumetric, Filament Width Sensor, etc.
-#define DEFAULT_NOMINAL_FILAMENT_DIA 1.75
+#define DEFAULT_NOMINAL_FILAMENT_DIA 1.75   // custom setup BP (according to original FW)
 
 // For Cyclops or any "multi-extruder" that shares a single nozzle.
 //#define SINGLENOZZLE
@@ -315,7 +315,7 @@
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
 #define TEMP_SENSOR_4 0
-#define TEMP_SENSOR_BED 1   // custom setup BP
+#define TEMP_SENSOR_BED 1   // custom setup BP (according to original FW)
 #define TEMP_SENSOR_CHAMBER 0
 
 // Dummy thermistor constant temperature readings, for use with 998 and 999
@@ -385,9 +385,9 @@
   //#define DEFAULT_Kd 114
 
   // Ender-3 Pro (custom setup according to Creality original FW config)
-  #define  DEFAULT_Kp 20.84
-  #define  DEFAULT_Ki 1.96
-  #define  DEFAULT_Kd 55.47
+  #define  DEFAULT_Kp 20.84   // custom setup BP (according to original FW)
+  #define  DEFAULT_Ki 1.96    // custom setup BP (according to original FW)
+  #define  DEFAULT_Kd 55.47   // custom setup BP (according to original FW)
 
   // MakerGear
   //#define DEFAULT_Kp 7.0
@@ -466,7 +466,7 @@
  * Note: For Bowden Extruders make this large enough to allow load/unload.
  */
 #define PREVENT_LENGTHY_EXTRUDE
-#define EXTRUDE_MAXLENGTH 200
+#define EXTRUDE_MAXLENGTH 301   // custom setup BP
 
 //===========================================================================
 //======================== Thermal Runaway Protection =======================
@@ -569,7 +569,7 @@
 
 // Enable this feature if all enabled endstop pins are interrupt-capable.
 // This will remove the need to poll the interrupt pins, saving many CPU cycles.
-//#define ENDSTOP_INTERRUPTS_FEATURE    // custom setup BP
+//#define ENDSTOP_INTERRUPTS_FEATURE    // custom setup BP (causes errors during compiling on VS Code)
 
 /**
  * Endstop Noise Filter
@@ -613,14 +613,14 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }   // custom setup BP (default Ender-3 Pro)
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }   // custom setup BP (according to original FW)
 
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 500, 500, 5, 25 }   // custom setup BP (default Ender-3 Pro)
+#define DEFAULT_MAX_FEEDRATE          { 500, 500, 5, 25 }   // custom setup BP (according to original FW)
 
 /**
  * Default Max Acceleration (change/s) change = mm/s
@@ -628,7 +628,7 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 500, 500, 100, 1000 } // custom setup BP (default Ender-3 Pro)
+#define DEFAULT_MAX_ACCELERATION      { 500, 500, 100, 1000 } // custom setup BP (according to original FW)
 
 /**
  * Default Acceleration (change/s) change = mm/s
@@ -733,11 +733,11 @@
 /**
  * The BLTouch probe uses a Hall effect sensor and emulates a servo.
  */
-#define BLTOUCH
+#define BLTOUCH     // custom setup BP
 #if ENABLED(BLTOUCH)
-  #define SERVO0_PIN 27 //Important!! Set "#define BEEPER_PIN -1" in all the SANGUINOLOLU_11.h to prevent triggering the BL Touch probe during the menu use - Customized DBP
+  #define SERVO0_PIN 27 //Important!! Set "#define BEEPER_PIN -1" in all the pins_SANGUINOLOLU_11.h to prevent triggering the BL Touch probe during the menu use - Customized DBP
 
-  #define BLTOUCH_DELAY 500   // (ms) Enable and increase if needed
+  //#define BLTOUCH_DELAY 500   // (ms) Enable and increase if needed
 #endif
 
 /**
@@ -784,15 +784,15 @@
  *      O-- FRONT --+
  *    (0,0)
  */
-#define X_PROBE_OFFSET_FROM_EXTRUDER -44  // X offset: -left  +right  [of the nozzle]
-#define Y_PROBE_OFFSET_FROM_EXTRUDER -5  // Y offset: -front +behind [the nozzle]
+#define X_PROBE_OFFSET_FROM_EXTRUDER -44  // X offset: -left  +right  [of the nozzle]   // custom setup BP
+#define Y_PROBE_OFFSET_FROM_EXTRUDER -5  // Y offset: -front +behind [the nozzle]       // custom setup BP
 #define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
 
 // Certain types of probes need to stay away from edges
 #define MIN_PROBE_EDGE 10
 
 // X and Y axis travel speed (mm/m) between probes
-#define XY_PROBE_SPEED 3000   // custom setup BP (original Ender-3 Pro firmware)
+#define XY_PROBE_SPEED 3000   // custom setup BP (according to original FW)
 
 // Feedrate (mm/m) for the first approach when double-probing (MULTIPLE_PROBING == 2)
 #define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z
@@ -822,7 +822,7 @@
 #define Z_CLEARANCE_DEPLOY_PROBE   10 // Z Clearance for Deploy/Stow
 #define Z_CLEARANCE_BETWEEN_PROBES  5 // Z Clearance between probe points
 #define Z_CLEARANCE_MULTI_PROBE     5 // Z Clearance between multiple probes
-#define Z_AFTER_PROBING           20 // Z position after probing is done   // custom setup BP
+#define Z_AFTER_PROBING            20 // Z position after probing is done   // custom setup BP
 
 #define Z_PROBE_LOW_POINT          -2 // Farthest distance below the trigger-point to go before stopping
 
@@ -856,14 +856,14 @@
 // @section machine
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
-#define INVERT_X_DIR true   // custom setup BP (Ender-3 Pro original firmware)
+#define INVERT_X_DIR true   // custom setup BP (according to original FW)
 #define INVERT_Y_DIR true
 #define INVERT_Z_DIR false
 
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR true  // custom setup BP (Ender-3 Pro original firmware)
+#define INVERT_E0_DIR true  // custom setup BP (according to original FW)
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
@@ -888,7 +888,7 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 235
+#define X_BED_SIZE 235  
 #define Y_BED_SIZE 235
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
@@ -897,7 +897,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 250   // custom setup BP (Ender-3 Pro original firmware)
+#define Z_MAX_POS 200   // custom setup BP (max height reduced by drag chain mount)
 
 /**
  * Software Endstops
@@ -1436,7 +1436,7 @@
  * you must uncomment the following option or it won't work.
  *
  */
-//#define SDSUPPORT   
+//#define SDSUPPORT       // custom setup BP
 
 /**
  * SD CARD: SPI SPEED
