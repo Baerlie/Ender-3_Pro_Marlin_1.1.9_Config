@@ -976,7 +976,7 @@
 // enter the serial receive buffer, so they cannot be blocked.
 // Currently handles M108, M112, M410
 // Does not work on boards using AT90USB (USBCON) processors!
-#define EMERGENCY_PARSER    // custom setup BP
+#define EMERGENCY_PARSER    // custom setup BP (Ender-3 Pro original firmware)
 
 // Bad Serial-connections can miss a received command by sending an 'ok'
 // Therefore some clients abort after 30 seconds in a timeout.
@@ -1044,7 +1044,7 @@
                                                   // This short retract is done immediately, before parking the nozzle.
   #define FILAMENT_CHANGE_UNLOAD_FEEDRATE     10  // (mm/s) Unload filament feedrate. This can be pretty fast.
   #define FILAMENT_CHANGE_UNLOAD_ACCEL        25  // (mm/s^2) Lower acceleration may allow a faster feedrate.
-  #define FILAMENT_CHANGE_UNLOAD_LENGTH      100  // (mm) The length of filament for a complete unload.
+  #define FILAMENT_CHANGE_UNLOAD_LENGTH      300  // (mm) The length of filament for a complete unload.   // custom setup BP
                                                   //   For Bowden, the full length of the tube and nozzle.
                                                   //   For direct drive, the full length of the nozzle.
                                                   //   Set to 0 for manual unloading.
@@ -1053,7 +1053,7 @@
                                                   // 0 to disable start loading and skip to fast load only
   #define FILAMENT_CHANGE_FAST_LOAD_FEEDRATE   6  // (mm/s) Load filament feedrate. This can be pretty fast.
   #define FILAMENT_CHANGE_FAST_LOAD_ACCEL     25  // (mm/s^2) Lower acceleration may allow a faster feedrate.
-  #define FILAMENT_CHANGE_FAST_LOAD_LENGTH     0  // (mm) Load length of filament, from extruder gear to nozzle.
+  #define FILAMENT_CHANGE_FAST_LOAD_LENGTH     300  // (mm) Load length of filament, from extruder gear to nozzle.     // custom setup BP
                                                   //   For Bowden, the full length of the tube and nozzle.
                                                   //   For direct drive, the full length of the nozzle.
   //#define ADVANCED_PAUSE_CONTINUOUS_PURGE       // Purge continuously up to the purge length until interrupted.
@@ -1543,26 +1543,26 @@
 /**
  * User-defined menu items that execute custom GCode
  */
-#define CUSTOM_USER_MENUS   // custom setup BP
+// taken from Daniel Brooke Peig (https://www.danbp.org/p/en/node/136?page=0)
+#define CUSTOM_USER_MENUS   // custom setup DBP
 #if ENABLED(CUSTOM_USER_MENUS)
   #define USER_SCRIPT_DONE "M117 User Script Done"
-  //#define USER_SCRIPT_AUDIBLE_FEEDBACK    // custom setup BP
-  #define USER_SCRIPT_RETURN  // Return to status screen after a script   // custom setup BP
+  #define USER_SCRIPT_RETURN  // Return to status screen after a script   // custom setup DBP
 
-  #define USER_DESC_1 "Enable Bed Leveling"   //Customized BP
-  #define USER_GCODE_1 "G28\nM420 S1"         //Customized BP
+  #define USER_DESC_1 "Enable Bed Leveling"   //Customized DBP
+  #define USER_GCODE_1 "G28\nM420 S1"         //Customized DBP
 
-  #define USER_DESC_2 "Maintenance position"    //Customized BP
-  #define USER_GCODE_2 "G90\nG0 X0 Y0 Z50\nM84" //Customized BP
+  #define USER_DESC_2 "Maintenance position"    //Customized DBP
+  #define USER_GCODE_2 "G90\nG0 X0 Y0 Z50\nM84" //Customized DBP
   
   #define USER_DESC_3 "Heat and Level PLA" //Customized BP
-  #define USER_GCODE_3 "M190 R" STRINGIFY(PREHEAT_1_TEMP_BED) "\nG4 S60\nG28\nG29\nM500\nG28\nM140 S0" //Customized BP
+  #define USER_GCODE_3 "M190 R" STRINGIFY(PREHEAT_1_TEMP_BED) "\nG4 S60\nG28\nG29\nM500\nG28\nM140 S0" //Customized DBP
 
   #define USER_DESC_4 "Heat and Level ABS" //Customized BP
-  #define USER_GCODE_4 "M190 R" STRINGIFY(PREHEAT_2_TEMP_BED) "\nG4 S60\nG28\nG29\nM500\nG28\nM140 S0" //Customized BP
+  #define USER_GCODE_4 "M190 R" STRINGIFY(PREHEAT_2_TEMP_BED) "\nG4 S60\nG28\nG29\nM500\nG28\nM140 S0" //Customized DBP
 
-  #define USER_DESC_5 "Emergency Stop" //Customized BP
-  #define USER_GCODE_5 "M112" //Customized BP
+  #define USER_DESC_5 "Emergency Stop" //Customized DBP
+  #define USER_GCODE_5 "M112" //Customized DBP
 #endif
 
 /**
