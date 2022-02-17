@@ -1,5 +1,5 @@
-# Ender-3 Pro Marlin 1.1.9.1 Config
-This config for Marlin 1.1.9.1 Firmware for Ender-3 Pro (Mainboard Version 1.1.4) incl. BLTouch settings and M600 enabled (for Filament Change and Runout Sensor via OctoPrint).
+# Ender-3 Pro Marlin 1.1.9 Config
+This config for Marlin 1.1.9 Firmware for Ender-3 Pro (Mainboard Version 1.1.4) incl. BLTouch settings and M600 enabled (for Filament Change and Runout Sensor via OctoPrint).
 
 The settings for BLTouch were taken from Daniel Brooke Peig (https://www.danbp.org/p/en/node/136?page=0). Other changes to the Marlin Config were taken from the original Ender-3 Pro firmware (speed, babystepping etc.). 
 
