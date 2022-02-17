@@ -3,7 +3,7 @@ This config for Marlin 1.1.9.1 Firmware for Ender-3 Pro (Mainboard Version 1.1.4
 
 The settings for BLTouch were taken from Daniel Brooke Peig (https://www.danbp.org/p/en/node/136?page=0). Other changes to the Marlin Config were taken from the original Ender-3 Pro firmware (speed, babystepping etc.). 
 
-I use the original BLTouch mount that came with the kit, so the settings for X and Y offset are set to -44 and -5. If you are using a different mount for BLTouch, you probably have to change the offset values in lines 787 and 788 in the file Configuration.h. All the changes I made to the config are marked with // custom setup BP.
+I use the original BLTouch mount that came with the kit, so the settings for the probe's X and Y offset are set to -44 and -5. If you are using a different mount for BLTouch, you probably have to change the offset values in lines 787 and 788 in the file Configuration.h. All the changes I made to the config are marked with // custom setup BP.
 
 Since the original Ender-3 Pro mainboard has limited memory, I had to **disable the SD Card support** to get the features activated that are necessary for BLTouch and the M600 GCode command (needed for the Filament Runout Sensor and Filament Change/Nozzle Parking features).
 
